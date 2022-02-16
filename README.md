@@ -18,6 +18,8 @@ Awesome lecture from the classroom- https://classroom.udacity.com/nanodegrees/nd
 ### Revision for submission
 Rev.- This is a resubmit fo the project. The first submission is Rev1.0
 
+## NOTES:
+Changed the background color of the README file into green- 
 body {
     background-color: green;
 }
