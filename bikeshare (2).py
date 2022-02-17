@@ -1,4 +1,4 @@
-"""This bikeshare code uses Python to explore and understand the data in the bike share system for the United States- Chicago, Washington and New York City. The data results for all cities will have the start and end times; trip duration; start and end stations; the user type; gender; and birth year columns in the computed statistics. Additionally, the code has a script that takes in raw input to create an interactive experience in the terminal to present these statistics."""
+"""This bikeshare code uses Python to explore and understand the data in the bike share system for the United States-Chicago, Washington, and New York City. The data results for all cities will have the start and end times; trip duration; start and end stations; the user type; gender; and birth year columns in the computed statistics. Additionally, the code has a script that takes in raw input to create an interactive experience in the terminal to present these statistics."""
 import time
 import pandas as pd
 import numpy as np
