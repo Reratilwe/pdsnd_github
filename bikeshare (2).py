@@ -31,7 +31,7 @@ def get_filters():
     
     while True:
         time = input('what would you like to analyse between month,day and all:')
-        if time == 'month':
+        if time == 'month_name':
             month_name= input("May you please enter the month, between january and june that you would like to explore:").lower()
             day = 'all'
             break
