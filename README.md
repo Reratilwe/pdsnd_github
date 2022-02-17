@@ -10,6 +10,6 @@ Post your work on GITHUB - Refactoring code
  Making improvements in my Bikeshare python file for efficiency and readability 
 
 ### Software used to build python code 
-Python 3, NumPy, and pandas installed using Anaconda
+Python 3, NumPy, and pandas installed using Anaconda.
 Atom text editor
 
