@@ -1,3 +1,4 @@
+"""This bikeshare code uses Python to explore and understand the data in the bike share system for the United States-Chicago, Washington, and New York City. The data results for all cities will have the start and end times; trip duration; start and end stations; the user type; gender; and birth year columns in the computed statistics. Additionally, the code has a script that takes in raw input to create an interactive experience in the terminal to present these statistics."""
 import time
 import pandas as pd
 import numpy as np
@@ -30,17 +31,17 @@ def get_filters():
     
     while True:
         time = input('what would you like to analyse between month,day and all:')
-        if time == 'month':
-            month= input("May you please enter the month, between january and june that you would like to explore:").lower()
+        if time == 'month_name':
+            month_name= input("May you please enter the month, between january and june that you would like to explore:").lower()
             day = 'all'
             break
         
         elif time == 'day':
             day = input('May you please enter the day of the week you would like to explore:').lower()
-            month = 'all'
+            month_name= 'all'
             break
         elif time == 'all':
-            month = input('May you please enter the month, from january to june that you would like to explore:').lower()
+            month_name = input('May you please enter the month, from january to june that you would like to explore:').lower()
             day = input('May you please enter the day of the week you would like to explore:').lower()
             break
         else:
@@ -48,9 +49,9 @@ def get_filters():
 
                      
     print('-'*40)
-    return city, month, day
+    return city, month_name, day
 
-def load_data(city, month, day):
+def load_data(city, month_name, day):
     """
     Loads data for the specified city and filters by month and day if applicable.
 
@@ -65,14 +66,14 @@ def load_data(city, month, day):
     df = pd.read_csv(CITY_DATA[city])
 
     df['Start Time'] = pd.to_datetime(df['Start Time'])
-    df['month'] = df['Start Time'].dt.month
+    df['month_name'] = df['Start Time'].dt.month_name
     df['day_of_week'] = df['Start Time'].dt.weekday_name
 
-    if month != 'all':
+    if month_name != 'all':
         months = ['january', 'february', 'march', 'april', 'may', 'june']
-        month = months.index(month) + 1
+        month_name = months.index(month_name) + 1
 
-        df = df[df['month'] == month]
+        df = df[df['month_name'] == month_name]
 
     if day != 'all':
         df = df[df['day_of_week'] == day.title()]
@@ -100,7 +101,7 @@ def time_stats(df):
     print('\nCalculating The Most Frequent Times of Travel...\n')
     start_time = time.time()
     # TO DO: display the most common month
-    common_month = df['month'].mode()[0]
+    common_month = df['month_name'].mode()[0]
     print('Most frequent month:', common_month)
     
     # TO DO: display the most common day of week
@@ -201,8 +202,8 @@ def user_stats(df):
 
 def main():
     while True:
-        city, month, day = get_filters()
-        df = load_data(city, month, day)
+        city, month_name, day = get_filters()
+        df = load_data(city, month_name, day)
 
         view_raw_data(df)
         time_stats(df)
